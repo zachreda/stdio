@@ -1,14 +1,14 @@
-//
-//  main.c
-//  stdio
-//
-//  Created by Zach Reda on 10/16/21.
-//
-
 #include <stdio.h>
+#include "mile.h"
+
+
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    printf("Hello, World!\n");
+    char *mode = 'r';
+    char *name = "text.txt";
+    mile *file = mopen(name, mode);
+    mclose(file);
+    
+    
     return 0;
 }
