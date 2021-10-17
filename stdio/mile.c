@@ -6,13 +6,13 @@
 //
 
 #include "mile.h"
+
+
 const int BUFSIZE = 1000;
 
 
 mile* mopen(char *name, char *mode){
     mile *filep = malloc(sizeof *filep);
-    filep->_buf = (char *)malloc(BUFSIZE*sizeof(char));
-    filep->_mode = mode;
     
     
     if (mode=='r') {
@@ -22,7 +22,20 @@ mile* mopen(char *name, char *mode){
         filep->_df = open(name, O_WRONLY); //open file for writing
     }
     
+    if (filep->_df != -1) {
+        filep->_buf = (char *)malloc(BUFSIZE*sizeof(char)); //allocate space for the buffer
+        filep->_mode = mode;
+    }
+    
     return filep;
+}
+
+int mread(void *b, int len, mile *m){
+    if (m->_mode!='r') {
+        return -1; //file must be open for reading if you want to call mread
+    }
+    int numr = read(m->_df, b, len);
+    return numr;
 }
 
 int mclose(mile *m){

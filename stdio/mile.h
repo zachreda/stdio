@@ -21,8 +21,6 @@ typedef struct mile {
     void *_buf; // buffer
 };
 
-
-
 mile *mopen(char *name, char *mode);
 int mread(void *b, int len, mile *m);
 int mwrite(void *b, int len, mile *m);
