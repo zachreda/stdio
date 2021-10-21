@@ -139,11 +139,11 @@ void test_large() {
 
 int main(int argc, char *argv[]) {
 
-    //test_read1(); //last line not printing properly
+    //test_read1();
     //test_write1();
     //test_append1();
-    test_copy1();
-    //test_readi();
+     // test_copy1();
+    test_readi();
     //test_writei();
     //test_large();
 

@@ -70,7 +70,8 @@ void freeReadBuffer(mile *m){
 }
 
 int mread(void *b, int len, mile *m){
-    off_t numr =-1;
+    off_t numr =0;
+    off_t res =0; // to track if end of file
     if (m->_mode!='r') {
         return -1; //file must be open for reading if you want to call mread
     }
@@ -79,14 +80,12 @@ int mread(void *b, int len, mile *m){
         if (m->_rbuf->_re == RBUFSIZE) {
             freeReadBuffer(m);
         }
-        numr = read(m->_df, (void*)m->_rbuf->_buf+m->_rbuf->_re, 1);
-        if (numr != -1) {
-            
+        res= read(m->_df, (void*)m->_rbuf->_buf+m->_rbuf->_re, 1);
+        if (res != 0) {
             memcpy(b+i, m->_rbuf->_buf+m->_rbuf->_re, 1);
             m->_rbuf->_re += 1;
+            numr+=res;
         }
-        else
-            return -1;
     }
  
     return numr;
