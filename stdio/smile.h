@@ -11,9 +11,9 @@
 #include "mile.h"
 
 int mputc(int c, mile *m);
-int mgetc(mile *m);
+int mgetc( mile *m);
 int mungetc(int c, mile *m);
-int mread_int(int *i, mile *m);
+int mread_int(mile *m);
 int mwrite_int(int *i, mile *m);
 
 #endif /* smile_h */

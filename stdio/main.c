@@ -80,13 +80,12 @@ void test_readi() {
     fprintf(stderr, "Test Read Int...\n");
     mile *m3 = mopen("t3i.dat", "r");
     
-    int *a;
-    int x = mread_int(a,m3);
-    fprintf(stderr,"Read:%d\n",a);
-    a = mread_int(a,m3);
-    fprintf(stderr,"Read:%d\n",a);
-    a = mread_int(a,m3);
-    fprintf(stderr,"Read:%d\n",a);
+    int x = mread_int(m3);
+    fprintf(stderr,"Read:%d\n",x);
+    x = mread_int(m3);
+    fprintf(stderr,"Read:%d\n",x);
+    x = mread_int(m3);
+    fprintf(stderr,"Read:%d\n",x);
 
     mclose(m3);
     fprintf(stderr, "Done Test Read Int\n");
@@ -145,7 +144,7 @@ int main(int argc, char *argv[]) {
      // test_copy1(); //works
     //test_readi();
     //test_writei();
-    test_large(); //works
+    //test_large(); //works
 
 
     return 0;
