@@ -29,6 +29,7 @@ int mread(void *b, int len, mile *m);
 int mwrite(void *b, int len, mile *m);
 int mclose(mile *m);
 int flush(mile *m);
+void freeReadBuffer(mile *m);
 
 
 #endif /* mile_h */
