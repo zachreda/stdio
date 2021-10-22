@@ -1,12 +1,12 @@
 //
-//  mile.h
+//  MILE.h
 //  stdio
 //
 //  Created by Zach Reda on 10/16/21.
 //
 
-#ifndef mile_h
-#define mile_h
+#ifndef MILE_h
+#define MILE_h
 
 #include <unistd.h>
 #include <fcntl.h>
@@ -15,8 +15,8 @@
 #include "buffer.h"
 
 
-typedef struct mile mile;
-typedef struct mile {
+typedef struct MILE MILE;
+typedef struct MILE {
     int _df; //file descriptor (-1 is bad)
     char _mode; // r=0 | w=1 , append is a special write
     readbuff *_rbuf;
@@ -24,12 +24,12 @@ typedef struct mile {
     
 };
 
-mile *mopen(char *name, char *mode);
-int mread(void *b, int len, mile *m);
-int mwrite(void *b, int len, mile *m);
-int mclose(mile *m);
-int flush(mile *m);
-void freeReadBuffer(mile *m);
+MILE *mopen(char *name, char *mode);
+int mread(void *b, int len, MILE *m);
+int mwrite(void *b, int len, MILE *m);
+int mclose(MILE *m);
+int flush(MILE *m);
+void freeReadBuffer(MILE *m);
 
 
-#endif /* mile_h */
+#endif /* MILE_h */

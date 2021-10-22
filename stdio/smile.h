@@ -1,19 +1,19 @@
 //
-//  smile.h
+//  sMILE.h
 //  stdio
 //
 //  Created by Zach Reda on 10/18/21.
 //
 
-#ifndef smile_h
-#define smile_h
+#ifndef sMILE_h
+#define sMILE_h
 
-#include "mile.h"
+#include "MILE.h"
 
-int mputc(int c, mile *m);
-int mgetc( mile *m);
-int mungetc(int c, mile *m);
-int mread_int(mile *m);
-int mwrite_int(int *i, mile *m);
+int mputc(int c, MILE *m);
+int mgetc( MILE *m);
+int mungetc(int c, MILE *m);
+int mread_int(MILE *m);
+int mwrite_int(int i, MILE *m);
 
-#endif /* smile_h */
+#endif /* sMILE_h */
